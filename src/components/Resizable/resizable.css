@@ -1,0 +1,26 @@
+.react-resizable-handle {
+	display: block;
+	background-color: #f0f0f0;
+	background-repeat: no-repeat;
+	background-position: 50%;
+}
+
+.react-resizable-handle-s {
+	position: relative;
+	height: 2px;
+	width: 100%;
+	cursor: row-resize;
+}
+
+.react-resizable-handle-e {
+	z-index: 10;
+	width: 2px;
+	min-width: 2px;
+	height: 100%;
+	cursor: col-resize;
+}
+
+.resize-horizontal {
+	display: flex;
+	flex-direction: row;
+}

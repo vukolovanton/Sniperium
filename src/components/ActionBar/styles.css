@@ -1,0 +1,11 @@
+.action-bar-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.action-button {
+    border: 1px solid ghostwhite;
+    border-radius: 6px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
