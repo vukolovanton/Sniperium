@@ -7,38 +7,36 @@ import { Snippet } from "../../state/Snippet";
 import { useActions } from "../../hooks/useActions";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
 import "./styles.css";
-// import { useCumulativeCode } from "../../hooks/useCumulativeCode";
+import { useCumulativeCode } from "../../hooks/useCumulativeCode";
 
 interface SnippetEditorProps {
   snippet: Snippet;
 }
 
 const SnippetEditor: React.FC<SnippetEditorProps> = ({ snippet }) => {
-  // const cumulativeCode = useCumulativeCode(snippet.id);
+  const cumulativeCode = useCumulativeCode(snippet.id);
   const { updateSnippet, createBundle } = useActions();
-  const bundle = useTypedSelector(
-    (state) => state.bundles && state.bundles[snippet.id]
-  );
+  const bundle = useTypedSelector((state) => state.bundles[snippet.id]);
 
   const onClickSubmit = async () => {
-    createBundle(snippet.id, snippet.content);
+    createBundle(snippet.id, cumulativeCode);
   };
 
   // Todo: refactor to run on typing?
-  // useEffect(() => {
+  // React.useEffect(() => {
   //   if (!bundle) {
-  //     createBundle(snippet.id, snippet.content);
+  //     createBundle(snippet.id, cumulativeCode);
   //     return;
   //   }
   //   const timer = setTimeout(async () => {
-  //     createBundle(snippet.id, snippet.content);
+  //     createBundle(snippet.id, cumulativeCode);
   //   }, 1000);
   //
   //   return () => {
   //     clearTimeout(timer);
   //   };
   //   // eslint-disable-next-line
-  // }, [snippet.id, snippet.content, createBundle]);
+  // }, [snippet.id, cumulativeCode, createBundle]);
 
   return (
     <Resizable direction="vertical">
@@ -48,6 +46,7 @@ const SnippetEditor: React.FC<SnippetEditorProps> = ({ snippet }) => {
             initialValue={snippet.content}
             onChange={(value) => updateSnippet(snippet.id, value)}
             onClickSubmit={onClickSubmit}
+            snippetId={snippet.id}
           />
         </Resizable>
 

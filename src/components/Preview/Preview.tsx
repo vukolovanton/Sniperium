@@ -46,7 +46,7 @@ const Preview: React.FC<PreviewProps> = ({ code, err }) => {
     setTimeout(() => {
       // Hack to make sure browser has enough time to update and set event listener
       iframe.current.contentWindow.postMessage(code, "*");
-    }, 50);
+    }, 100);
   }, [code]);
 
   return (
