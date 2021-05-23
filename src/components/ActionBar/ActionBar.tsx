@@ -11,21 +11,15 @@ const ActionBar: React.FC<ActionBarProps> = ({ id }) => {
 
   return (
     <div className="action-bar-container">
-      <div>123</div>
-      <div>
-        <button className="action-button" onClick={() => moveSnippet(id, "up")}>
-          Up
-        </button>
-        <button
-          className="action-button"
-          onClick={() => moveSnippet(id, "down")}
-        >
-          Down
-        </button>
-        <button className="action-button" onClick={() => deleteSnippet(id)}>
-          Delete
-        </button>
-      </div>
+      <button className="action-button" onClick={() => moveSnippet(id, "up")}>
+        Up
+      </button>
+      <button className="action-button" onClick={() => moveSnippet(id, "down")}>
+        Down
+      </button>
+      <button className="action-button" onClick={() => deleteSnippet(id)}>
+        Delete
+      </button>
     </div>
   );
 };

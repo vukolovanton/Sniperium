@@ -28,3 +28,11 @@ textarea,
 select {
     font: inherit;
 }
+
+.main-container {
+    background-color: #f3f4ed;
+    opacity: 1;
+    background-image: radial-gradient(#536162 0.6000000000000001px, #f3f4ed 0.6000000000000001px);
+    background-size: 10px 10px;
+    height: 100vh;
+}

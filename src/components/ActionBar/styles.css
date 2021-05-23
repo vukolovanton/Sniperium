@@ -1,9 +1,16 @@
 .action-bar-container {
     display: flex;
     justify-content: flex-end;
+    position: relative;
+    align-items: center;
+    background-color: #f3f4ed;
+    opacity: 0.8;
+    background-size: 10px 10px;
+    background-image: repeating-linear-gradient(45deg, #c06014 0, #c06014 0.6000000000000001px, #f3f4ed 0, #f3f4ed 50%);
 }
 
 .action-button {
+    font-size: 12px;
     border: 1px solid ghostwhite;
     border-radius: 6px;
     background-color: white;

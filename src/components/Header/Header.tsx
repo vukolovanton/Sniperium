@@ -1,5 +1,5 @@
 import React from "react";
-import AddSnippet from "../AddSnippet";
+import AddSnippet from "./AddSnippet";
 import "./styles.css";
 
 const Header = () => {

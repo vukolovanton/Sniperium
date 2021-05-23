@@ -1,5 +1,5 @@
 import React from "react";
-import { useActions } from "../../hooks/useActions";
+import { useActions } from "../../../hooks/useActions";
 import "./styles.css";
 
 interface AddSnippetProps {

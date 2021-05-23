@@ -6,6 +6,7 @@ import Resizable from "../Resizable";
 import { Snippet } from "../../state/Snippet";
 import { useActions } from "../../hooks/useActions";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
+import "./styles.css";
 // import { useCumulativeCode } from "../../hooks/useCumulativeCode";
 
 interface SnippetEditorProps {
@@ -41,7 +42,7 @@ const SnippetEditor: React.FC<SnippetEditorProps> = ({ snippet }) => {
 
   return (
     <Resizable direction="vertical">
-      <div style={{ height: "100%", display: "flex", flexDirection: "row" }}>
+      <div className="editor-container">
         <Resizable direction="horizontal">
           <CodeEditor
             initialValue={snippet.content}
@@ -49,8 +50,14 @@ const SnippetEditor: React.FC<SnippetEditorProps> = ({ snippet }) => {
             onClickSubmit={onClickSubmit}
           />
         </Resizable>
+
         {!bundle || bundle.loading ? (
-          <span>Loading...</span>
+          <div className="snippet-editor-container">
+            <div className="spinner">
+              <div className="dot1" />
+              <div className="dot2" />
+            </div>
+          </div>
         ) : (
           <Preview code={bundle.code} err={bundle.err} />
         )}
