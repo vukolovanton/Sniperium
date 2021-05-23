@@ -1,9 +1,9 @@
-import * as esbuild from "esbuild-wasm";
+import { PluginBuild } from "esbuild-wasm";
 
 export const unpkgPathPlugin = () => {
   return {
     name: "unpkg-path-plugin",
-    setup(build: esbuild.PluginBuild) {
+    setup(build: PluginBuild) {
       // Handle default index.tsx file
       build.onResolve({ filter: /(^index\.js$)/ }, () => {
         return { path: "index.js", namespace: "a" };

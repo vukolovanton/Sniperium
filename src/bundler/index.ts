@@ -7,6 +7,8 @@ const bundle = async (rawCode: string) => {
   if (!executed) {
     await esbuild.initialize({
       wasmURL: "https://unpkg.com/esbuild-wasm@0.12.1/esbuild.wasm",
+      // wasmURL: "/esbuild.wasm",
+      worker: true,
     });
     executed = true;
   }
@@ -16,13 +18,14 @@ const bundle = async (rawCode: string) => {
       entryPoints: ["index.js"],
       bundle: true,
       write: false,
+      target: ["es2020", "node14"],
       plugins: [unpkgPathPlugin(), fetchPlugin(rawCode)],
       define: {
         "process.env.NODE_ENV": '"production"',
         global: "window",
       },
-      jsxFactory: "React.createElement",
-      jsxFragment: "React.Fragment",
+      // jsxFactory: "React.createElement",
+      // jsxFragment: "React.Fragment",
     });
     return {
       code: result.outputFiles[0].text,
