@@ -7,19 +7,17 @@ import { Snippet } from "../../state/Snippet";
 import { useActions } from "../../hooks/useActions";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
 import "./styles.css";
-import { useCumulativeCode } from "../../hooks/useCumulativeCode";
 
 interface SnippetEditorProps {
   snippet: Snippet;
 }
 
 const SnippetEditor: React.FC<SnippetEditorProps> = ({ snippet }) => {
-  const cumulativeCode = useCumulativeCode(snippet.id);
-  const { updateSnippet, createBundle } = useActions();
   const bundle = useTypedSelector((state) => state.bundles[snippet.id]);
+  const { updateSnippet } = useActions();
 
-  const onClickSubmit = async () => {
-    createBundle(snippet.id, cumulativeCode);
+  const handleChange = (value: string) => {
+    updateSnippet(snippet.id, value);
   };
 
   // Todo: refactor to run on typing?
@@ -42,12 +40,7 @@ const SnippetEditor: React.FC<SnippetEditorProps> = ({ snippet }) => {
     <Resizable direction="vertical">
       <div className="editor-container">
         <Resizable direction="horizontal">
-          <CodeEditor
-            initialValue={snippet.content}
-            onChange={(value) => updateSnippet(snippet.id, value)}
-            onClickSubmit={onClickSubmit}
-            snippetId={snippet.id}
-          />
+          <CodeEditor initialValue={snippet.content} onChange={handleChange} />
         </Resizable>
 
         {!bundle || bundle.loading ? (

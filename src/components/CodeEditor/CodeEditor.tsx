@@ -1,67 +1,35 @@
-import React, { useState } from "react";
+import React from "react";
 import MonacoEditor from "@monaco-editor/react";
-
-import "./styles.css";
 import { useCodeEditor } from "../../hooks/useCodeEditor";
-import { useActions } from "../../hooks/useActions";
-import { JS_TEMPLATE, REACT_TEMPLATE } from "../../constants/snippetTemplates";
+import "./styles.css";
 
 interface CodeEditorProps {
   initialValue: string;
   onChange(value: string): void;
-  onClickSubmit(): void;
-  snippetId: string;
 }
 
-const CodeEditor: React.FC<CodeEditorProps> = ({
-  initialValue,
-  onChange,
-  onClickSubmit,
-  snippetId,
-}) => {
-  const { updateSnippet } = useActions();
+const CodeEditor: React.FC<CodeEditorProps> = ({ initialValue, onChange }) => {
   const { onEditorDidMount, onFormatClick } = useCodeEditor(onChange);
-  const [template, setTemplate] = useState("default");
+  const isFirstRun = React.useRef(true);
 
-  const getTemplate = (value: string) => {
-    let t = "";
-    switch (value) {
-      case "react-template":
-        return (t = REACT_TEMPLATE);
-      case "js-template":
-        return (t = JS_TEMPLATE);
-      case "clear":
-        setTemplate("default");
-        return t;
+  // Format code after 2 seconds, but skip initial render
+  React.useEffect(() => {
+    if (isFirstRun.current) {
+      isFirstRun.current = false;
+      return;
     }
-    return t;
-  };
 
-  const handleTemplateChange = (
-    event: React.ChangeEvent<HTMLSelectElement>
-  ) => {
-    setTemplate(event.target.value);
-    updateSnippet(snippetId, getTemplate(event.target.value));
-  };
+    const timer = setTimeout(async () => {
+      onFormatClick();
+    }, 2000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [initialValue, onFormatClick]);
 
   return (
     <div style={{ width: "100%", position: "relative" }}>
-      <div className="code-editor-button-container">
-        <select value={template} onChange={handleTemplateChange}>
-          <option value="default" disabled={true}>
-            Select template...
-          </option>
-          <option value="react-template">React App</option>
-          <option value="js-template">JS</option>
-          <option value="clear">Clear</option>
-        </select>
-        <button className="action-button" onClick={onFormatClick}>
-          Format
-        </button>
-        <button className="action-button" onClick={onClickSubmit}>
-          Submit
-        </button>
-      </div>
       <MonacoEditor
         editorDidMount={onEditorDidMount}
         value={initialValue}

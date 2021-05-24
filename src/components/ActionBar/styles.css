@@ -1,6 +1,8 @@
 .action-bar-container {
+    padding: 0 20px;
     display: flex;
-    justify-content: flex-end;
+    height: 30px;
+    justify-content: space-between;
     position: relative;
     align-items: center;
     background-color: #f3f4ed;
@@ -10,9 +12,21 @@
 }
 
 .action-button {
+    margin-left: 10px;
     font-size: 12px;
     border: 1px solid ghostwhite;
     border-radius: 6px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+
+
+.template-select {
+    padding: 2px 6px;
+    font-size: 12px;
+    border: 1px solid ghostwhite;
+    border-radius: 6px;
+    -webkit-appearance: none;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 }

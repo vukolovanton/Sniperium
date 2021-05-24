@@ -17,6 +17,7 @@ const SnippetListItem: React.FC<SnippetListItemProps> = ({ snippet }) => {
   } else {
     child = <TextEditor snippet={snippet} />;
   }
+
   return (
     <div className="snippet-list-item-container">
       <ActionBar id={snippet.id} />
