@@ -1,1 +1,1 @@
-### Snipper: add, describe, and run code snippets
+### Snipper: add, describe, and run JS code snippets

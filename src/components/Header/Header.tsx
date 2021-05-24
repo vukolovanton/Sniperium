@@ -7,7 +7,7 @@ const Header = () => {
     <div className="header-container">
       <div>
         <h3>Snipper</h3>
-        <p>Add, describe, and run code snippets</p>
+        <p>Add, describe, and run JS code snippets</p>
       </div>
       <AddSnippet nextSnippetId={null} />
     </div>

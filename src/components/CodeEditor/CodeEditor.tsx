@@ -1,6 +1,7 @@
 import React from "react";
 import MonacoEditor from "@monaco-editor/react";
 import { useCodeEditor } from "../../hooks/useCodeEditor";
+import { useHotkeys } from "../../hooks/react-hotkeys-hook";
 import "./styles.css";
 
 interface CodeEditorProps {
@@ -10,23 +11,24 @@ interface CodeEditorProps {
 
 const CodeEditor: React.FC<CodeEditorProps> = ({ initialValue, onChange }) => {
   const { onEditorDidMount, onFormatClick } = useCodeEditor(onChange);
-  const isFirstRun = React.useRef(true);
 
-  // Format code after 2 seconds, but skip initial render
-  React.useEffect(() => {
-    if (isFirstRun.current) {
-      isFirstRun.current = false;
-      return;
-    }
+  useHotkeys("command+s", () => onFormatClick());
 
-    const timer = setTimeout(async () => {
-      onFormatClick();
-    }, 2000);
+  // Todo: Format code after 2 seconds, but skip initial render
 
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [initialValue, onFormatClick]);
+  //   const isFirstRun = React.useRef(true);
+  //   React.useEffect(() => {
+  //   if (isFirstRun.current) {
+  //     isFirstRun.current = false;
+  //     return;
+  //   }
+  //   const timer = setTimeout(async () => {
+  //     onFormatClick();
+  //   }, 2000);
+  //   return () => {
+  //     clearTimeout(timer);
+  //   };
+  // }, [initialValue, onFormatClick]);
 
   return (
     <div style={{ width: "100%", position: "relative" }}>

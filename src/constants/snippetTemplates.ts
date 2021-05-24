@@ -1,10 +1,9 @@
-export const REACT_TEMPLATE = `
-import React from "react";
+export const REACT_TEMPLATE = `import React from "react";
 import ReactDOM from "react-dom";
 
 const App = () => {
     return (
-        <h3>Pickle rick</h3>
+        <h3>I turned myself into a React template, Morty! </h3>
     )
 }
 
@@ -15,10 +14,6 @@ ReactDOM.render(
 `;
 
 export const JS_TEMPLATE = `document.getElementById("root").innerHTML = \`
-<h1>Hello to Snipper!</h1>
+<h1>I turned myself into a JS function, Morty!</h1>
 \`;
 `;
-
-// ReactDom.render(<App />, document.querySelector("#root"));
-// ReactDOM.render(<App />, document.querySelector("#root"));
-// ReactDom.render(<App />, document.querySelector("#root"));
