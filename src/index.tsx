@@ -11,11 +11,9 @@ const App = () => {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <div className="padding-container">
-          <div className="main-container">
-            <Header />
-            <SnippetsList />
-          </div>
+        <div>
+          <Header />
+          <SnippetsList />
         </div>
       </PersistGate>
     </Provider>
