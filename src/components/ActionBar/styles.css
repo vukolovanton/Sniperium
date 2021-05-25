@@ -14,19 +14,32 @@
 .action-button {
     margin-left: 10px;
     font-size: 12px;
-    border: 1px solid ghostwhite;
+    border: 1px solid #c06014;
     border-radius: 6px;
-    background-color: white;
+    background-color: #f3f4ed;
+    color: #c06014;
+    cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 }
 
+.action-button:hover {
+    background-color: #c06014;
+    color: #f3f4ed;
+}
 
 .template-select {
     padding: 2px 6px;
     font-size: 12px;
-    border: 1px solid ghostwhite;
+    border: 1px solid #c06014;
     border-radius: 6px;
     -webkit-appearance: none;
-    background-color: white;
+    background-color: #f3f4ed;
+    color: #c06014;
+    cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+
+.template-select:hover {
+    background-color: #c06014;
+    color: #f3f4ed;
 }

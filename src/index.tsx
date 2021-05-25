@@ -1,7 +1,8 @@
 import ReactDom from "react-dom";
 import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
 
-import { store } from "./state";
+import { store, persistor } from "./state";
 import Header from "./components/Header";
 import SnippetsList from "./components/SnippetsList";
 import "./index.css";
@@ -9,12 +10,14 @@ import "./index.css";
 const App = () => {
   return (
     <Provider store={store}>
-      <div className="padding-container">
-        <div className="main-container">
-          <Header />
-          <SnippetsList />
+      <PersistGate loading={null} persistor={persistor}>
+        <div className="padding-container">
+          <div className="main-container">
+            <Header />
+            <SnippetsList />
+          </div>
         </div>
-      </div>
+      </PersistGate>
     </Provider>
   );
 };

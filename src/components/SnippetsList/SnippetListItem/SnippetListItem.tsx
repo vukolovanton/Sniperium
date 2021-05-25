@@ -20,7 +20,7 @@ const SnippetListItem: React.FC<SnippetListItemProps> = ({ snippet }) => {
 
   return (
     <div className="snippet-list-item-container">
-      <ActionBar id={snippet.id} />
+      <ActionBar snippet={snippet} />
       {child}
     </div>
   );

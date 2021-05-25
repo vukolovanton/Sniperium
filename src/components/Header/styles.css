@@ -17,3 +17,8 @@
 .header-container h3 {
     color: #424642;
 }
+
+.title-container {
+    display: flex;
+    flex-direction: row;
+}
