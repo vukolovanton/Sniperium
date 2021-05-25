@@ -19,6 +19,21 @@ const html = `
 				root.innerHTML = '<div style="color: red;"><h4>Runtime Error</h4>' + err + '</div>';
 				console.error(err);
 			}
+			// Print console.log on iframe
+			(function () {
+              const old = console.log;
+              const logger = document.querySelector('#root');
+              console.log = function () {
+                for (let i = 0; i < arguments.length; i++) {
+                  if (typeof arguments[i] == 'object') {
+                      logger.innerHTML += '<div style="color: blue;">' + (JSON && JSON.stringify ? JSON.stringify(arguments[i], undefined, 2) : arguments[i]) + '</div>' + '<br />';
+                  } else {
+                      logger.innerHTML += '<div style="color: blue;">' + arguments[i] + '</div>' + '<br />';
+                  }
+                }
+                old(...arguments);
+              }
+            })();
 
 			// Handling async errors
 			window.addEventListener('error', (event) => {
