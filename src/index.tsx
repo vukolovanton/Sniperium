@@ -9,9 +9,11 @@ import "./index.css";
 const App = () => {
   return (
     <Provider store={store}>
-      <div className="main-container">
-        <Header />
-        <SnippetsList />
+      <div className="padding-container">
+        <div className="main-container">
+          <Header />
+          <SnippetsList />
+        </div>
       </div>
     </Provider>
   );

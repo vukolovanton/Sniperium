@@ -1,6 +1,7 @@
 import React from "react";
 import SnippetListItem from "./SnippetListItem";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
+import "./syles.css";
 
 const SnippetsList: React.FC = () => {
   const snippets = useTypedSelector(({ snippets }) => {
@@ -14,7 +15,7 @@ const SnippetsList: React.FC = () => {
       <SnippetListItem snippet={snippet} />
     </React.Fragment>
   ));
-  return <div>{renderedSnippets}</div>;
+  return <div className="view-container">{renderedSnippets}</div>;
 };
 
 export default SnippetsList;
