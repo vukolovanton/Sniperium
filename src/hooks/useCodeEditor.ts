@@ -1,7 +1,8 @@
 import { useRef } from "react";
 import { EditorDidMount } from "@monaco-editor/react";
-import Highlighter from "monaco-jsx-highlighter";
-import codeShift from "jscodeshift";
+import MonacoJSXHighlighter from "monaco-jsx-highlighter";
+import traverse from "@babel/traverse";
+import { parse } from "@babel/parser";
 import prettier from "prettier";
 import parser from "prettier/parser-babel";
 
@@ -14,19 +15,19 @@ export const useCodeEditor = (onChange: (s: string) => void) => {
       onChange(getValue());
     });
     // Highlight js code
-    const highlighter = new Highlighter(
+    const babelParse = (code: string) =>
+      parse(code, {
+        sourceType: "module",
+        plugins: ["jsx"],
+      });
+    const highlighter = new MonacoJSXHighlighter(
       // @ts-ignore
       window.monaco,
-      codeShift,
+      babelParse,
+      traverse,
       monacoEditor
     );
-    // Shitty code required by this library
-    highlighter.highLightOnDidChangeModelContent(
-      () => {},
-      () => {},
-      undefined,
-      () => {}
-    );
+    highlighter.highLightOnDidChangeModelContent(100);
   };
 
   const onFormatClick = () => {

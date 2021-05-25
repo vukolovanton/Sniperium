@@ -13,7 +13,9 @@ interface SnippetEditorProps {
 }
 
 const SnippetEditor: React.FC<SnippetEditorProps> = ({ snippet }) => {
-  const bundle = useTypedSelector((state) => state.bundles[snippet.id]);
+  const bundle = useTypedSelector(
+    (state) => state.bundles && state.bundles[snippet.id]
+  );
   const { updateSnippet } = useActions();
 
   const handleChange = (value: string) => {
