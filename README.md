@@ -1,5 +1,6 @@
 # Sniperium
 ### Add, describe, and run JS code snippets.
+https://sniperium.netlify.app/
 
 ---
 
@@ -28,6 +29,8 @@ console.log(p); // => 'Pickle Rick!'
 
 - Describe your code: create a new markdown editor snippet with `Text +` button at the header.
   Enter your notes and just click outside to save them.
+  
+--- 
 
 ### Release notes:
 - **0.1: Current build.** You can import npm-modules on the fly and run any JS code snippets.
