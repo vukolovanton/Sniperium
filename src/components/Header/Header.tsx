@@ -4,13 +4,13 @@ import "./styles.css";
 
 const Header = () => {
   return (
-    <div className="header-container">
+    <header className="header-container">
       <div>
-        <h3>Snipper</h3>
+        <h3>Sniperium</h3>
         <p>Add, describe, and run JS code snippets</p>
       </div>
       <AddSnippet nextSnippetId={null} />
-    </div>
+    </header>
   );
 };
 

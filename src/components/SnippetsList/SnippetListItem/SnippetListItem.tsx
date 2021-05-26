@@ -19,10 +19,10 @@ const SnippetListItem: React.FC<SnippetListItemProps> = ({ snippet }) => {
   }
 
   return (
-    <div className="snippet-list-item-container">
+    <section className="snippet-list-item-container">
       <ActionBar snippet={snippet} />
       {child}
-    </div>
+    </section>
   );
 };
 
