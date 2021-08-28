@@ -1,5 +1,5 @@
 import React from "react";
-import MonacoEditor from "@monaco-editor/react";
+import Editor from "@monaco-editor/react";
 import { useCodeEditor } from "../../hooks/useCodeEditor";
 import { useHotkeys } from "../../hooks/react-hotkeys-hook";
 import "./styles.css";
@@ -32,8 +32,8 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ initialValue, onChange }) => {
 
   return (
     <div style={{ width: "100%", position: "relative" }}>
-      <MonacoEditor
-        editorDidMount={onEditorDidMount}
+      <Editor
+        onMount={onEditorDidMount}
         value={initialValue}
         height="100%"
         language="javascript"

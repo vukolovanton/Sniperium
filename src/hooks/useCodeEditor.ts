@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { EditorDidMount } from "@monaco-editor/react";
+import {OnMount } from "@monaco-editor/react";
 import MonacoJSXHighlighter from "monaco-jsx-highlighter";
 import traverse from "@babel/traverse";
 import { parse } from "@babel/parser";
@@ -9,10 +9,10 @@ import parser from "prettier/parser-babel";
 export const useCodeEditor = (onChange: (s: string) => void) => {
   const editorRef = useRef<any>();
 
-  const onEditorDidMount: EditorDidMount = (getValue, monacoEditor) => {
+  const onEditorDidMount: OnMount = (monacoEditor) => {
     editorRef.current = monacoEditor;
     monacoEditor.onDidChangeModelContent(() => {
-      onChange(getValue());
+      onChange(editorRef.current.getValue());
     });
     // Highlight js code
     const babelParse = (code: string) =>
