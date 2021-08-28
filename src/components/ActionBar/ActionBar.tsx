@@ -4,6 +4,7 @@ import "./styles.css";
 import { JS_TEMPLATE, REACT_TEMPLATE } from "../../constants/snippetTemplates";
 import { useCumulativeCode } from "../../hooks/useCumulativeCode";
 import { Snippet } from "../../state/Snippet";
+import {useTypedSelector} from "../../hooks/useTypedSelector";
 
 interface ActionBarProps {
   snippet: Snippet;
@@ -14,6 +15,9 @@ const ActionBar: React.FC<ActionBarProps> = ({ snippet }) => {
   const [template, setTemplate] = useState("default");
   const { moveSnippet, deleteSnippet, updateSnippet, createBundle } =
     useActions();
+  const bundle = useTypedSelector(
+      (state) => state.bundles && state.bundles[snippet.id]
+  );
   const cumulativeCode = useCumulativeCode(id);
 
   const onClickSubmit = async () => {
@@ -30,6 +34,12 @@ const ActionBar: React.FC<ActionBarProps> = ({ snippet }) => {
     }
     return t;
   };
+
+    React.useEffect(() => {
+      if (!bundle) {
+        createBundle(id, cumulativeCode);
+      }
+  }, [bundle, createBundle, cumulativeCode, id]);
 
   const handleTemplateChange = (
     event: React.ChangeEvent<HTMLSelectElement>
