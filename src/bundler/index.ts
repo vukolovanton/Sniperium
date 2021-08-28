@@ -18,7 +18,7 @@ const bundle = async (rawCode: string) => {
       entryPoints: ["index.js"],
       bundle: true,
       write: false,
-      target: ["es2020", "node14"],
+      target: ["es2020", "node16"],
       plugins: [unpkgPathPlugin(), fetchPlugin(rawCode)],
       define: {
         "process.env.NODE_ENV": '"production"',

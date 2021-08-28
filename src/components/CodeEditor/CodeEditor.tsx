@@ -15,7 +15,6 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ initialValue, onChange }) => {
   useHotkeys("command+s", () => onFormatClick());
 
   // Todo: Format code after 2 seconds, but skip initial render
-
   //   const isFirstRun = React.useRef(true);
   //   React.useEffect(() => {
   //   if (isFirstRun.current) {
@@ -37,13 +36,14 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ initialValue, onChange }) => {
         value={initialValue}
         height="100%"
         language="javascript"
+        className="editor"
         options={{
           wordWrap: "on",
           minimap: { enabled: true },
           showUnused: false,
           folding: false,
           lineNumbersMinChars: 3,
-          fontSize: 16,
+          fontSize: 14,
           scrollBeyondLastLine: false,
           automaticLayout: true,
           overviewRulerLanes: 0,

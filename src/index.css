@@ -35,3 +35,9 @@ body {
     background-image: radial-gradient(#536162 0.6000000000000001px, #f3f4ed 0.6000000000000001px);
     background-size: 10px 10px;
 }
+
+.editor {
+    margin: 0;
+    font-weight: bold;
+    font-family: 'Play', sans-serif;
+}
