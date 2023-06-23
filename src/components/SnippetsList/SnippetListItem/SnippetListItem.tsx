@@ -1,5 +1,4 @@
 import React from "react";
-import TextEditor from "../../TextEditor";
 import SnippetEditor from "../../SnippetEditor";
 import { Snippet } from "../../../state/Snippet";
 import ActionBar from "../../ActionBar";
@@ -10,13 +9,7 @@ interface SnippetListItemProps {
 }
 
 const SnippetListItem: React.FC<SnippetListItemProps> = ({ snippet }) => {
-  let child: JSX.Element;
-
-  if (snippet.type === "code") {
-    child = <SnippetEditor snippet={snippet} />;
-  } else {
-    child = <TextEditor snippet={snippet} />;
-  }
+  let child: JSX.Element = <SnippetEditor snippet={snippet} />;
 
   return (
     <section className="snippet-list-item-container">

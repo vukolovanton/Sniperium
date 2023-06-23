@@ -26,9 +26,9 @@ const html = `
               console.log = function () {
                 for (let i = 0; i < arguments.length; i++) {
                   if (typeof arguments[i] == 'object') {
-                      logger.innerHTML += '<div style="color: blue;">' + (JSON && JSON.stringify ? JSON.stringify(arguments[i], undefined, 2) : arguments[i]) + '</div>' + '<br />';
+                      logger.innerHTML += '<code>' + (JSON && JSON.stringify ? JSON.stringify(arguments[i], undefined, 2) : arguments[i]) + '</code>' + '<br />';
                   } else {
-                      logger.innerHTML += '<div style="color: blue;">' + arguments[i] + '</div>' + '<br />';
+                      logger.innerHTML += '<code>' + arguments[i] + '</code>' + '<br />';
                   }
                 }
                 old(...arguments);

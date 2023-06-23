@@ -17,12 +17,6 @@ const AddSnippet: React.FC<AddSnippetProps> = ({ nextSnippetId }) => {
       >
         <span>Code</span>
       </button>
-      <button
-        className="button icon-slide-right"
-        onClick={() => insertSnippetBefore(nextSnippetId, "text")}
-      >
-        <span>Text</span>
-      </button>
     </div>
   );
 };

@@ -1,58 +1,58 @@
 .button.icon-slide-right {
-    background: transparent;
-    color: #c06014;
+  background: transparent;
+  color: #c06014;
 }
 .button.icon-slide-right::after {
-    transform: translate(-50%, -50%);
-    left: 50%;
-    top: 50%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
 }
-.button.icon-slide-left, button.icon-slide-right {
-    position: relative;
-    overflow: hidden;
+.button.icon-slide-left,
+button.icon-slide-right {
+  position: relative;
+  overflow: hidden;
 }
 .button {
-    border-color: #c06014;
-    padding: 5px 20px;
-    border-radius: 6px;
-    border-width: 1px;
-    border-style: solid;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.25s ease;
+  border-color: #c06014;
+  padding: 5px 20px;
+  border-radius: 6px;
+  border-width: 1px;
+  border-style: solid;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.25s ease;
 }
 .button > span {
-    position: relative;
-    z-index: 1;
+  position: relative;
+  z-index: 1;
 }
 .button.icon-slide-right::after {
-    content: "+";
-    position: absolute;
-    left: -20%;
-    transition: 0.25s ease;
+  content: "+";
+  position: absolute;
+  left: -20%;
+  transition: 0.25s ease;
 }
 .button.icon-slide-right span {
-    transition: 0.25s ease;
+  transition: 0.25s ease;
 }
 .button.icon-slide-right:hover span {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 .button.icon-slide-right:hover:after {
-    left: 20px;
+  left: 20px;
 }
 .button.icon-slide-right::after {
-    left: 120%;
+  left: 120%;
 }
 .button.icon-slide-right:hover span {
-    margin-left: 0;
-    margin-right: 20px;
+  margin-left: 0;
+  margin-right: 20px;
 }
 .button.icon-slide-right:hover:after {
-    left: calc(100% - 20px);
+  left: calc(100% - 20px);
 }
 
 .container {
-    display: flex;
-    justify-content: space-between;
-    width: 12rem;
+  display: flex;
+  justify-content: space-between;
 }
